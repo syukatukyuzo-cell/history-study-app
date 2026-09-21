@@ -16,5 +16,18 @@ window.ShortStudyCore = (() => {
   Object.values(groups).forEach(a=>a.sort((a,b)=>priority(a)-priority(b)));
   const result=[],cats=shuffle(Object.keys(groups));while(result.length<size){let added=false;for(const c of cats){if(groups[c].length&&result.length<size){result.push(groups[c].shift());added=true;}}if(!added)break;}return shuffle(result);
  }
- return {day,later,update,shuffle,select};
+ function belongs(q,scope){
+  if(scope==='mission')return true;
+  if(scope==='history')return q.legacy?.subject==='history'||q.subject==='social'&&q.category!=='通常問題';
+  if(scope==='civics')return q.legacy?.subject==='civics';
+  if(scope==='biology')return q.subject==='science'&&['細胞分裂','生殖','遺伝・進化'].includes(q.category);
+  if(scope==='physics')return q.subject==='science'&&['物体の運動','力・浮力'].includes(q.category);
+  return q.subject===scope;
+ }
+ function mission(bank,records,size=5,today=day()){
+  const tiers=[[],[],[],[]];
+  for(const q of bank){const r=records[q.id];tiers[r?.due&&r.due<=today?0:r?.weak?1:!r||!r.seen?2:3].push(q);}
+  const result=[];for(const tier of tiers){result.push(...select(tier,records,size-result.length,today));if(result.length>=size)break;}return shuffle(result);
+ }
+ return {day,later,update,shuffle,select,belongs,mission};
 })();

@@ -2,3 +2,12 @@
 
 body:not([data-view=home]) #missionCard,body.short-open #missionCard{display:none}body.short-open .subjects,body.short-open .subject-heading{display:none}#missionCard{margin-top:18px}
 body.short-open .section-heading{display:none}
+body[data-view=home] .subjects{display:none!important}
+body:not([data-view=home]) .home-choices,body.short-open .home-choices{display:none}
+.home-subjects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0}
+.home-subject{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-height:98px;padding:12px 8px;border:1px solid #efd6e1;border-radius:20px;box-shadow:0 4px 14px #18385e08;color:#253959}
+.home-subject strong{font-size:16px}.home-subject-icon{font-size:27px;line-height:1.2}
+.home-subject.history{background:linear-gradient(135deg,#fff8fc,#fce5ef)}.home-subject.civics{background:linear-gradient(135deg,#f7fffc,#def4eb);border-color:#d6eae1}.home-subject.english{background:linear-gradient(135deg,#f8fcff,#dff0fb);border-color:#d4e6f3}.home-subject.japanese{background:linear-gradient(135deg,#fffafa,#fbe7e9)}.home-subject.biology{background:linear-gradient(135deg,#fbfff9,#e3f2df);border-color:#d9e9d5}.home-subject.physics{background:linear-gradient(135deg,#f9fbff,#e2eafa);border-color:#dbe2f3}
+.home-choice-link{width:100%;text-align:left;min-height:52px;margin:4px 0;padding:13px 16px;border-radius:16px;font-weight:800;background:#fff;border:1px solid #e0e7f0}
+#missionCard .short-start{margin-top:4px;margin-bottom:9px}#missionCard small{font-size:12px;color:#62738a}
+@media(max-width:400px){.home-subjects{gap:8px}.home-subject{min-height:88px;padding:10px 5px;border-radius:17px}.home-subject strong{font-size:15px}.home-subject-icon{font-size:25px}}
