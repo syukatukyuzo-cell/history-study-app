@@ -11,3 +11,6 @@ body:not([data-view=home]) .home-choices,body.short-open .home-choices{display:n
 .home-choice-link{width:100%;text-align:left;min-height:52px;margin:4px 0;padding:13px 16px;border-radius:16px;font-weight:800;background:#fff;border:1px solid #e0e7f0}
 #missionCard .short-start{margin-top:4px;margin-bottom:9px}#missionCard small{font-size:12px;color:#62738a}
 @media(max-width:400px){.home-subjects{gap:8px}.home-subject{min-height:88px;padding:10px 5px;border-radius:17px}.home-subject strong{font-size:15px}.home-subject-icon{font-size:25px}}
+
+#vocabShortcut{display:none!important}.subject-menu .home-choice-link{margin-top:10px}.subject-menu .primary{margin-bottom:10px}
+
